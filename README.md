@@ -12,4 +12,4 @@ you have to follow this steps
 
 create a file named ``.env``
 
-then inside it should contain : 
+
