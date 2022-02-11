@@ -14,4 +14,4 @@ create a file named ``.env``
 
 then inside it should contain : 
 
-``.env.sample`` in the codes folder
+``.env.sample`` in the codes folde
