@@ -8,7 +8,6 @@ import Notification from "../models/notification";
 import auth from "../helpers/auth";
 const router = express.Router();
 
-// Funding of wallet
 router.post("/payment/create", auth, async (req, res, next) => {
   req.assert("amount", "Please enter the Amount you want to add into your wallet").notEmpty();
   const errors = req.validationErrors();
@@ -17,13 +16,11 @@ router.post("/payment/create", auth, async (req, res, next) => {
     return res.redirect("back");
   }
 
-  // check if the amount coming from body is less than ₦50
   if (parseInt(req.body.amount) < 50) {
     req.flash("success_msg", "The least you can fund your wallet with is ₦50.");
     return res.redirect("back");
   }
 
-  // payload to send to paystack to initialize a transaction
   const paystack_data = {
     amount: parseInt(req.body.amount) * 100,
     email: req.user.email,
@@ -63,13 +60,9 @@ router.get("/payment/verify", auth, async (req, res, next) => {
 
   let transaction_id = await Transaction.findOne({ userId: req.user.id, reference });
 
-  // fund the user wallet only if the transaction status is success
   if (status == "success") {
-    // if the payment was successfull, increase the user's balance with the added amount. the default
-    // amount in a user's account is 0
     await User.updateOne({ _id: req.user.id }, { $inc: { balance: transaction_id.amount } });
 
-    // create a notfication for the user that a money has been credited into their account
     let notification_payload = {
       receiverId: req.user.id,
       content: `₦${transaction_id.amount
