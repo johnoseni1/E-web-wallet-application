@@ -18,7 +18,6 @@
   },
   "author": "John oseni",
   "license": "ISC",
-  "homepage": "https://github.com/Endowmissy/E-wallet-app#readme",
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "axios": "^0.21.1",
