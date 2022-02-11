@@ -91,13 +91,7 @@ router.get("/payment/verify", auth, async (req, res, next) => {
   }
 });
 
-/**
- * sending of virtual money. You can send money to a user via their virtual_account_id
- * the virtual_account_id looks like an account number, you can ask that from the user
- * you can also send money to a user via their email.
- * @param {String} recepient Recepient can be email or a virtual account ID
- * @param {Number} amount
- */
+
 
 router.post("/transfer/create", auth, async (req, res, next) => {
   // check if the recepient and amount field is not empty
