@@ -13,3 +13,4 @@ you have to follow this steps
 > ``cp .env.sample .env``
 
 after the top step, you have to edit the variables to yours
+
