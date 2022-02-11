@@ -86,7 +86,7 @@ router.get("/user/dashboard/gift-received", auth, async (req, res, next) => {
 
 router.get("/user/dashboard/gift/send-a-gift", auth, (req, res, next) =>
   res.render("./account/send-a-gift", {
-    
+    name: req.user.full_name
   }),
 );
 
