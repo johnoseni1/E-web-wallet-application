@@ -159,7 +159,7 @@ sup {
 }
 
 a {
-  color: #4e73df;
+  color: #fd7e14;
   text-decoration: none;
   background-color: transparent;
 }
@@ -2255,8 +2255,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
 }
 
 .btn-primary:hover {
@@ -2271,8 +2271,8 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #fff;
-  background-color: #4e73df;
-  border-color: #4e73df;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
@@ -2526,8 +2526,8 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #4e73df;
-  border-color: #4e73df;
+  color: #fd7e14;
+  border-color: #fd7e14;
 }
 
 .btn-outline-primary:hover {
