@@ -78,7 +78,8 @@ router.get("/user/dashboard/gift-received", auth, async (req, res, next) => {
     .populate("senderId")
     .sort({ createdAt: -1 });
   res.render("./account/gift-received", {
-    gift_received, name: req.user.full_name
+    gift_received,
+    name: req.user.full_name
   });
 });
 
