@@ -68,7 +68,9 @@ router.get("/user/dashboard/gift-history", auth, async (req, res, next) => {
   let gift_sent = await Wallet.find({ senderId: req.user.id })
     .populate("receiverId")
     .sort({ createdAt: -1 });
-  res.render("./account/gift-sent", { gift_sent,  });
+  res.render("./account/gift-sent", {
+    gift_sent,
+  });
 });
 
 router.get("/user/dashboard/gift-received", auth, async (req, res, next) => {
