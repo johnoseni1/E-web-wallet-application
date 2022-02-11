@@ -10,4 +10,4 @@ and to use it effectively  <br />
 
 you have to follow this steps
 
-
+``cp .env.sample .env``
