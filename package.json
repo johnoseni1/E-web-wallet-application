@@ -1,7 +1,7 @@
 {
   "name": "E-web-wallet",
   "version": "1.0.0",
-  "description": "",
+  "description": "....",
   "main": "index.js",
   "scripts": {
     "start": "node ./dist/index.js",
