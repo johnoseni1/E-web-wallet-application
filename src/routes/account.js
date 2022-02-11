@@ -59,7 +59,9 @@ router.get("/user/dashboard/transaction-history", auth, async (req, res, next) =
 });
 
 router.get("/user/dashboard/fund-wallet", auth, (req, res, next) =>
-  res.render("./account/fund-wallet"),
+  res.render("./account/fund-wallet", {
+    
+  }),
 );
 
 router.get("/user/dashboard/gift-history", auth, async (req, res, next) => {
