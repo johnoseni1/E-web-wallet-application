@@ -11,7 +11,6 @@ router.use(async (req, res, next) => {
   next();
 });
 
-// router.get("/", (req, res, next) => res.render("login"));
 router.get("/sign-up", (req, res, next) => res.render("sign-up"));
 router.get("/", (req, res, next) => res.render("login"));
 
