@@ -13,11 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/johnoseni1/E-web-wallet-application"
   },
-  "author": "John oseni",
-  "license": "ISC",
-  "bugs": {
+    "bugs": {
     "url": "https://github.com/johnoseni1/E-web-wallet-application/issues"
   },
+  "author": "John oseni",
+  "license": "ISC",
   "homepage": "https://github.com/Endowmissy/E-wallet-app#readme",
   "dependencies": {
     "@babel/runtime": "^7.9.2",
