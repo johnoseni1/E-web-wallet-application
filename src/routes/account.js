@@ -70,6 +70,7 @@ router.get("/user/dashboard/gift-history", auth, async (req, res, next) => {
     .sort({ createdAt: -1 });
   res.render("./account/gift-sent", {
     gift_sent,
+    name
   });
 });
 
