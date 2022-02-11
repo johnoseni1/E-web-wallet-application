@@ -94,7 +94,6 @@ router.get("/payment/verify", auth, async (req, res, next) => {
 
 
 router.post("/transfer/create", auth, async (req, res, next) => {
-  // check if the recepient and amount field is not empty
   req.assert("recepient", "Pls enter the receiver's email or virtual account ID").notEmpty();
   req.assert("amount", "Pls enter the amount you will like to Gift out").notEmpty();
   const errors = req.validationErrors();
@@ -103,23 +102,19 @@ router.post("/transfer/create", auth, async (req, res, next) => {
     return res.redirect("back");
   }
 
-  // search the database for the user either with the email or the virtal account id, skip the logged in userId (sender ID)
   const { amount, recepient, transaction_remark } = req.body;
   let receiver = await User.findOne({
     _id: { $ne: req.user.id },
     $or: [{ email: recepient }, { virtual_account_id: recepient }],
   });
 
-  // if not user found, send a message back
   if (!receiver) {
     req.flash("success_msg", "The Receiver's account was not found, You can try again.");
     return res.redirect("back");
   }
 
-  // if user was found, check if the sender has up to the amount they want to transfer in their acc
   const user_has_enough_balance = req.user.balance >= parseInt(amount);
 
-  // if user has enough balance, make the transer, Update the sender's balance else, send a message back to the user
   if (user_has_enough_balance) {
     await Wallet.create({
       senderId: req.user.id,
@@ -130,16 +125,13 @@ router.post("/transfer/create", auth, async (req, res, next) => {
 
     let sender_current_balance = await User.findById(req.user.id);
 
-    // Update the Sender's balance
     await User.updateOne(
       { _id: req.user.id },
       { $set: { balance: sender_current_balance.balance - parseInt(amount) } },
     );
 
-    // Update the Receiver's balance
     await User.updateOne({ _id: receiver._id }, { $inc: { balance: parseInt(amount) } });
 
-    // send a notification to the receiver that they have been gifted money, incase they see an additional money in their wallet balance.
     let notification_payload = {
       receiverId: receiver._id,
       content: `₦${parseInt(amount)
