@@ -10,5 +10,4 @@ and to use it effectively  <br />
 
 you have to follow this steps
 
-create a file named ``.env``
 
