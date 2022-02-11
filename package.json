@@ -2,7 +2,7 @@
   "name": "e-wallet-app",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "start": "node ./dist/server.js",
     "build": "babel -d ./dist ./src",
