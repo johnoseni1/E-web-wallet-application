@@ -61,7 +61,7 @@ router.post("/login", async (req, res, next) => {
 router.get("/log-out", (req, res, next) => {
   req.logOut();
   req.flash("success_msg", "Login to Continue.");
-  return res.redirect("/login");
+  return res.redirect("/");
 });
 
 module.exports = router;
