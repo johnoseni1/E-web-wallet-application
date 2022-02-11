@@ -17,7 +17,6 @@
     "url": "https://github.com/johnoseni1/E-web-wallet-application/issues"
   },
   "author": "John oseni",
-  "license": "ISC",
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "axios": "^0.21.1",
