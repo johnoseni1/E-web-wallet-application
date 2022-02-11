@@ -75,7 +75,7 @@ router.get("/user/dashboard/gift-received", auth, async (req, res, next) => {
   let gift_received = await Wallet.find({ senderId: { $ne: req.user.id } })
     .populate("senderId")
     .sort({ createdAt: -1 });
-  res.render("./account/gift-received", { gift_received });
+  res.render("./account/gift-received", { gift_received, name: });
 });
 
 router.get("/user/dashboard/gift/send-a-gift", auth, (req, res, next) =>
